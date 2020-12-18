@@ -1,0 +1,17 @@
+.carousel .thumbs-wrapper {
+  display: none;
+}
+
+.carousel .carousel-status {
+  display: none;
+}
+
+.carousel .control-dots .dot {
+  width: 12px;
+  height: 12px;
+}
+
+.project-card {
+  margin: 0 2%;
+  margin-bottom: 2%;
+}
