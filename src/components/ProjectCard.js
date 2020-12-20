@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import './ProjectCard.css';
 
 function ProjectCard(props) {
-  const { title, text, images, links } = props;
+  const { title, text, images, links, tools } = props;
   const [mouseIsOver, setMouseOver] = useState(false);
 
   return (
@@ -20,11 +20,18 @@ function ProjectCard(props) {
         mouseIsOver ?
           <div className="layer">
             <h2>{title}</h2>
+              <div className='tools'>
+              {
+                tools.map((tool, j) => {
+                  return <span key={j} className={'tool ' + tool.class}>{tool.name}</span>
+                })
+              }
+              </div>
             <p>{text}</p>
             <div className="links">
               {
-                links.map((link, j) => {
-                  return <a key={j} href={link.href}>{'view ' + link.name}</a>
+                links.map((link, k) => {
+                  return <a className='link' key={k} href={link.href}>{'view ' + link.name}</a>
                 })
               }
             </div>

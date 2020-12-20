@@ -25,7 +25,7 @@ function App() {
       links={[
         {name: 'website', href: 'https://guess-the-note.herokuapp.com/'},
         {name: 'UI code', href: 'https://github.com/Dangert/piano-app'}]}
-      tools={[{name: 'React', class: 'react'}, {name: 'Node.js', class: 'nodejs'}, {name: 'PostreSQL', class: 'postgres'}]}/>
+      tools={[{name: 'React', class: 'react'}, {name: 'Node.js', class: 'nodejs'}, {name: 'PostgreSQL', class: 'postgres'}]}/>
     </div>
   );
 }
