@@ -1,50 +1,72 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import './ProjectCard.css';
-import AOS from 'aos';
-import "aos/dist/aos.css";
-//import ReactCSSTransitionGroup from 'react-transition-group';
+
+import { fadeIn, fadeInDown, fadeInUp } from 'react-animations';
+import { StyleSheet, css } from 'aphrodite';
+const ANIMATION_DURATION = '1s';
+
+const styles = StyleSheet.create({
+  fadeIn: {
+    animationName: fadeIn,
+    animationDuration: ANIMATION_DURATION
+  },
+  fadeInDown: {
+    animationName: fadeInDown,
+    animationDuration: ANIMATION_DURATION
+  },
+  fadeInUp: {
+    animationName: fadeInUp,
+    animationDuration: ANIMATION_DURATION
+  }
+})
 
 function ProjectCard(props) {
   const { title, text, images, links, tools } = props;
   const [mouseIsOver, setMouseOver] = useState(false);
 
-  useEffect(() => {
-    AOS.init({ duration: 2000 });
-  }, []);
-
   return (
-    <div data-aos="fade-up" className="project-card" onMouseEnter={() => {setMouseOver(true)}} onMouseLeave={() => {setMouseOver(false)}}>
-      <Carousel autoPlay interval="2500" infiniteLoop showStatus={false} showThumbs={false}>
-      {
-        images.map((img, i) => {
-          return <div key={i}><img alt={title} className={mouseIsOver ? "blur" : ""} src={img}/></div>
-        })
-      }
-      </Carousel>
-      {
-        mouseIsOver ?
-          <div className="layer">
-            <h2>{title}</h2>
-              <div className='tools'>
-              {
-                tools.map((tool, j) => {
-                  return <span key={j} className={'tool ' + tool.class}>{tool.name}</span>
-                })
-              }
+    <div>
+      <div className="project-card" onMouseEnter={() => {setMouseOver(true)}} onMouseLeave={() => {setMouseOver(false)}}>
+        <Carousel autoPlay interval="2500" infiniteLoop showStatus={false} showThumbs={false}>
+        {
+          images.map((img, i) => {
+            return <div key={i}><img alt={title} className={mouseIsOver ? "blur" : ""} src={img}/></div>
+          })
+        }
+        </Carousel>
+        {
+          mouseIsOver ?
+            <div className={"layer "}>
+              <h2 className={css(styles.fadeInDown)}>{title}</h2>
+                <div className={"tools " + css(styles.fadeIn)}>
+                {
+                  tools.map((tool, j) => {
+                    const toolStyle = StyleSheet.create({
+                      toolFadeIn: {
+                        animationName: fadeIn,
+                        animationDuration: '' + 1*(tools.length - j) + 's'
+                      }
+                    })
+                    return <span key={j} className={'tool ' + tool.class + ' ' + css(toolStyle.toolFadeIn)}>{tool.name}</span>
+                  })
+                }
+                </div>
+              <p className={css(styles.fadeIn)}>{text}</p>
+              <div className={"links " + css(styles.fadeInUp)}>
+                {
+                  links.map((link, k) => {
+                    return <a className='link' key={k} href={link.href}>{'view ' + link.name}</a>
+                  })
+                }
               </div>
-            <p>{text}</p>
-            <div className="links">
-              {
-                links.map((link, k) => {
-                  return <a className='link' key={k} href={link.href}>{'view ' + link.name}</a>
-                })
-              }
             </div>
-          </div>
-        : null
-      }
+          : null
+        }
+      </div>
+      <div className='card-space'>
+      </div>
     </div>
   );
 }
