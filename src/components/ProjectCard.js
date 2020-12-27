@@ -29,7 +29,7 @@ function ProjectCard(props) {
   return (
     <div>
       <div className="project-card" onMouseEnter={() => {setMouseOver(true)}} onMouseLeave={() => {setMouseOver(false)}}>
-        <Carousel autoPlay interval="2500" infiniteLoop showStatus={false} showThumbs={false}>
+        <Carousel autoPlay interval="2500" infiniteLoop showStatus={false} showArrows={false} showThumbs={false}>
         {
           images.map((img, i) => {
             return <div key={i}><img alt={title} className={mouseIsOver ? "blur" : ""} src={img}/></div>
@@ -38,7 +38,7 @@ function ProjectCard(props) {
         </Carousel>
         {
           mouseIsOver ?
-            <div className={"layer "}>
+            <div className={"layer " + css(styles.fadeIn)}>
               <h2 className={css(styles.fadeInDown)}>{title}</h2>
                 <div className={"tools " + css(styles.fadeIn)}>
                 {

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import './App.css';
 import below from './assets/below.png';
+import hand from './assets/hand.png';
 import ProjectCard from './components/ProjectCard';
 import AOS from 'aos';
 import "aos/dist/aos.css";
@@ -24,11 +25,14 @@ function App(props) {
     <div className="App">
       <div className="name-display">
         <div className="name-display-text">
-          <h1 className="p-name-display">Hi,</h1>
+          <div className="hi-container">
+            <h1 className="p-name-display">Hi</h1>
+            <img className="icon hand" alt="hand" src={hand}/>
+          </div>
           <h1 className="p-name-display">I'm Dan,</h1>
           <h1 className="p-name-display">a Software Developer.</h1>
         </div>
-        <img className='below' alt='below' src={below}/>
+        <img className="icon below" alt="below" src={below}/>
       </div>
 
       <div data-aos="fade-up">
