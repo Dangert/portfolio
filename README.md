@@ -1,6 +1,6 @@
 # Portfolio
 
-## Run locally
+## Run Locally
 
 - Clone repository and `cd` into local directory
 - run `npm install`
