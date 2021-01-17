@@ -2,7 +2,7 @@
 
 ## Run Locally
 
-- Clone repository and `cd` into local directory
+- clone repository and `cd` into local directory
 - run `npm install`
 - run `npm start`
 
