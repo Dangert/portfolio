@@ -12,7 +12,7 @@ h1 {
   font-family: Helvetica, Arial, sans-serif;
   text-align: left;
   font-weight: bold;
-  font-size: 4vw;
+  font-size: min(6vw, 72px);
   color: rgba(217, 224, 231, 0.8);
   text-shadow: 1px 2px 2px #000000, 0 0 0 #76787a, 1px 2px 2px #000000;
   line-height: 1em;
@@ -34,6 +34,8 @@ h1 {
 .below {
   right: 0;
   bottom: 2%;
+  width: 10%;
+  max-width: 80px;
 }
 
 .hi-container {

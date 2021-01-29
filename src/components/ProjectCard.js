@@ -57,7 +57,7 @@ function ProjectCard(props) {
               <div className={"links " + css(styles.fadeInUp)}>
                 {
                   links.map((link, k) => {
-                    return <a className='link' key={k} href={link.href}>{'view ' + link.name}</a>
+                    return <a className='link' key={k} href={link.href}>{(link.withoutView ? '' : 'view ') + link.name}</a>
                   })
                 }
               </div>
