@@ -61,7 +61,7 @@ function App(props) {
           blinkingApp3,
         ]}
         links={[
-          //{name: 'app', href: 'https://guess-the-note.herokuapp.com/'},
+          {name: 'app', href: 'https://play.google.com/store/apps/details?id=com.dangert.noblink'},
           {name: 'code', href: 'https://github.com/Dangert/blinking-app'}
         ]}
         tools={[{name: 'React Native', class: 'react-native'}]}/>
